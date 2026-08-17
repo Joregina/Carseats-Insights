@@ -38,3 +38,5 @@ The exploratory analysis suggests that **Price and Advertising are likely to be 
 A regression tree was developed to predict Sales using the available explanatory variables in the Carseats dataset. The data was divided into 70% training data and 30% testing data, allowing the model to be trained on one subset and evaluated on unseen observations. RMSE (Root Mean Squared Error) was used as the primary performance metric, with MAE and R² also used to provide additional measures of model performance.
 Performance (TBC)
 
+![ScatterPlot](DR.png) 
+
