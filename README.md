@@ -33,3 +33,8 @@ The matrix also highlights a strong positive relationship between **CompPrice an
 The exploratory analysis suggests that **Price and Advertising are likely to be important predictors of Sales**, while the remaining variables may provide additional explanatory power when considered together. However, the considerable spread of observations indicates that Sales cannot be explained by a single variable. This supports the use of a **multivariable predictive model** to assess the combined influence of pricing, advertising, market conditions, and demographic characteristics on car seat sales.
 
 ![ScatterPlot](ScatterPlot.png) 
+
+## Fitting A Regression Tree
+A regression tree was developed to predict Sales using the available explanatory variables in the Carseats dataset. The data was divided into 70% training data and 30% testing data, allowing the model to be trained on one subset and evaluated on unseen observations. RMSE (Root Mean Squared Error) was used as the primary performance metric, with MAE and R² also used to provide additional measures of model performance.
+Performance (TBC)
+
