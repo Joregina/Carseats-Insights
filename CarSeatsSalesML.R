@@ -1,5 +1,5 @@
 ############################################################ 
-# STAT605 Practical 2: Regression Trees                 
+# Using Regression Trees To Predict Sales Car Seats                
 ############################################################
 
 # ----------------------------------------------------------------------------- #
@@ -43,6 +43,18 @@ data("Carseats") #Click on data object to view the dataset
 ?Carseats
 View(Carseats)
 
+# Select only numeric columns from the mtcars dataset
+numeric_data <- df %>% 
+  select(where(is.numeric))
+
+# Generate the scatter matrix
+pairs(numeric_data, 
+      main = "Simple Scatterplot Matrix",
+      pch = 19,         # Solid circles for points
+      col = "blue")     # Point colour
+
+cor_matrix <- cor(numeric_data, use = "complete.obs")
+
 df <- Carseats
 
 names(df) # to get a list of the variable names in the data set
@@ -68,7 +80,6 @@ target <- "Sales"
 # 3. Train/Test Split --------------------------------------------------------- 
 # ----------------------------------------------------------------------------- #
 
-# Remember the following is generic code so nothing needs to change in this section.
 set.seed(seed)  
 split=sample.split(df_final[[target]],SplitRatio = train_frac) 
 
@@ -79,9 +90,6 @@ test_set=subset(df_final,split==FALSE)
 # 4. Data preprocessing (outside H2O) -----------------------------------------
 # ----------------------------------------------------------------------------- #
 
-# NOTE: Regression trees (like decision trees) do not require attributes to be normalized or dummy variable encoded, however to fit a regression tree using h20, we make use of the h20.gbm function which is actually for fitting ensemble methods like random forests which DO require preprocessing of the attributes..
-
-#We will do this purely for illustration.  It is advisable to rather fit a SINGLE regression tree using the rpart package (simpler)
 
 # This is generic code as well, do not change
 
@@ -141,7 +149,7 @@ search_criteria <- list(
 
 
 grid_tree <- h2o.grid(
-  algorithm = "gbm",
+  algorithm = "gbm", #h20, does not have RT so GBM used or onetree is specified,
   grid_id = "reg_tree_grid", # this is just the ID we are giving the search grid
   x = features,
   y = target,
@@ -162,9 +170,9 @@ sorted_grid_tree <- h2o.getGrid("reg_tree_grid",
 
 print(sorted_grid_tree)
 
-best_model_id_tree <- sorted_grid_tree@model_ids[[1]]
+best_model_id_tree <- sorted_grid_tree@model_ids[[1]] #extracting the first rows of the output
 
-best_model_tree <- h2o.getModel(best_model_id_tree)
+best_model_tree <- h2o.getModel(best_model_id_tree) 
 
 #Extract the tuned hyperparameter(s)
 tuned_max_depth <- best_model_tree@allparameters$max_depth
