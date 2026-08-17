@@ -1,6 +1,12 @@
-# Carseats-Insights
+# Retail-Sales-Intelligence
 
-## Sales of Child Car Seats
+## Business Objective
+
+The objective of this analysis is to **develop a predictive model that estimates child car seat sales across different store locations** using factors such as pricing, competitor pricing, advertising spend, income, population, shelving quality, and demographic characteristics.
+
+The model aims to identify the key factors that influence sales and provide businesses with **data-driven insights to anticipate sales performance, optimise pricing and advertising strategies, and improve retail decision-making**.
+
+## Carseats Data Intro
 
 The **Carseats** dataset is a simulated retail dataset containing sales information for **400 stores** selling child car seats. It provides a useful foundation for exploring the factors that influence product sales across different store locations.
 
