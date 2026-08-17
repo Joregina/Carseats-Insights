@@ -15,3 +15,4 @@ The dataset combines **sales performance, pricing, advertising, demographic, and
 The dataset also includes categorical variables describing whether a store is located in an **urban or rural area (`Urban`)** and whether it is located in the **US (`US`)**. Together, these variables allow for both **exploratory data analysis and predictive modelling** to investigate which factors are most strongly associated with car seat sales.
 
 Overall, the Carseats dataset provides a practical example of how **business, market, and customer-location data can be combined to understand sales performance and support data-driven retail decisions**.
+![ScatterPlot](ScatterPlot.png) 
